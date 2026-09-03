@@ -29,7 +29,7 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="meta">ExpiTracker (<code>com.expitracker.app</code>) &middot; Effective 28 August 2026</p>
+<p class="meta">ExpiTracker (<code>com.expitracker.app</code>) &middot; Effective 3 September 2026</p>
 
 <p class="lede">ExpiTracker collects nothing, transmits nothing, and has no servers. The app does not request internet access, so it is technically incapable of sending your data anywhere. Everything stays on your phone.</p>
 
@@ -43,7 +43,7 @@
 <ul>
   <li><strong>Nothing is monitored by default.</strong> You enable individual apps one at a time in Settings. Any app you have not enabled is ignored the moment its notification arrives.</li>
   <li><strong>Messaging apps can never be monitored.</strong> WhatsApp, Telegram, Signal, Google Chat, LinkedIn and similar apps sit on a permanent internal denylist that overrides your own choices. Even if such an app were somehow enabled, the service refuses it.</li>
-  <li><strong>Notification content is processed on your device</strong> to extract an amount, a currency and a merchant name. This happens entirely in local code.</li>
+  <li><strong>Notification content is processed on your device and then discarded.</strong> The alert is read in local code to extract four things — the amount, the currency, whether money went out or came in, and the merchant name. Those are saved. The notification text itself is not: it is never written to storage, and once the app has finished reading it nothing remains of it.</li>
 </ul>
 
 <h2>What is stored on your phone</h2>
@@ -56,10 +56,9 @@
     <tr><td>Category, income or expense</td><td>Dashboard totals and breakdowns</td></tr>
     <tr><td>Date and time</td><td>Monthly grouping</td></tr>
     <tr><td>Originating app package name</td><td>Duplicate detection</td></tr>
-    <tr><td><strong>Raw notification text</strong></td><td>So a transaction can be re-read if parsing was wrong</td></tr>
   </tbody>
 </table>
-<p>We want to be explicit about that last row: the original text of a captured notification is saved locally alongside the transaction. This may include details your bank chose to put in the alert, such as the last digits of a card. It is stored only on your device, in the app's private storage, and is never transmitted. You can delete any transaction, which deletes its stored text with it.</p>
+<p>That is the whole list. In particular, the original text of the bank alert is <strong>not</strong> among it. Bank alerts often carry details such as the last digits of a card or a running balance; the app reads the alert, takes the four fields above, and keeps none of the rest. Earlier versions did store that text, so that a transaction could be re-checked if it had been parsed wrongly. It is no longer kept, and upgrading permanently deletes any that an earlier version had saved.</p>
 
 <h2>Exporting your own data</h2>
 <p>Settings offers a CSV export. On Android 10 and newer the file is written to your device's Downloads folder; on Android 8 and 9 it is written to the app's own external files folder. The export happens only when you ask for it. Once a file is in your Downloads folder, it is an ordinary file under your control — if you then share it, that is your decision and this policy no longer governs it.</p>
