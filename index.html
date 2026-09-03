@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — ExpiTracker</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.65; max-width: 44rem; margin: 0 auto; padding: 2.5rem 1.25rem 5rem;
+    color: #16181d; background: #fff;
+  }
+  @media (prefers-color-scheme: dark) { body { color: #e7eaef; background: #111417; } }
+  h1 { font-size: 1.9rem; line-height: 1.15; margin: 0 0 .35rem; }
+  h2 { font-size: 1.2rem; margin: 2.25rem 0 .6rem; }
+  .meta { color: #6b7382; font-size: .9rem; margin: 0 0 2rem; }
+  .lede { font-size: 1.1rem; border-left: 3px solid #0E4F4A; padding-left: 1rem; margin: 0 0 2rem; }
+  @media (prefers-color-scheme: dark) { .lede { border-left-color: #5FBDB2; } }
+  code { background: rgba(127,127,127,.15); padding: .1em .35em; border-radius: 3px; font-size: .88em; }
+  ul { padding-left: 1.2rem; }
+  li { margin-bottom: .4rem; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .95rem; }
+  th, td { text-align: left; padding: .5rem .7rem; border-bottom: 1px solid rgba(127,127,127,.25); }
+  th { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: #6b7382; }
+  footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid rgba(127,127,127,.25); color: #6b7382; font-size: .9rem; }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="meta">ExpiTracker (<code>com.expitracker.app</code>) &middot; Effective 28 August 2026</p>
+
+<p class="lede">ExpiTracker collects nothing, transmits nothing, and has no servers. The app does not request internet access, so it is technically incapable of sending your data anywhere. Everything stays on your phone.</p>
+
+<h2>No data leaves your device</h2>
+<p>This is enforced by Android itself, not by our promise. The app does not declare the <code>android.permission.INTERNET</code> permission. Without it, the operating system prevents the app from opening any network connection at all. There is no account to create, no sign-in, no cloud sync, no analytics, no advertising, and no third-party SDKs of any kind.</p>
+<p>Automatic Android backup is also switched off (<code>allowBackup=false</code>), so your expense database is never uploaded to Google Drive.</p>
+
+<h2>Notification access, and what we do with it</h2>
+<p>To record transactions automatically, the app can read notifications posted by banking and payment apps you explicitly choose. This uses Android's Notification Listener service, which you must enable by hand in system settings. Until you do, the app reads nothing.</p>
+<p>Access is deliberately narrow:</p>
+<ul>
+  <li><strong>Nothing is monitored by default.</strong> You enable individual apps one at a time in Settings. Any app you have not enabled is ignored the moment its notification arrives.</li>
+  <li><strong>Messaging apps can never be monitored.</strong> WhatsApp, Telegram, Signal, Google Chat, LinkedIn and similar apps sit on a permanent internal denylist that overrides your own choices. Even if such an app were somehow enabled, the service refuses it.</li>
+  <li><strong>Notification content is processed on your device</strong> to extract an amount, a currency and a merchant name. This happens entirely in local code.</li>
+</ul>
+
+<h2>What is stored on your phone</h2>
+<p>Records are kept in a private database inside the app's own storage, readable only by this app:</p>
+<table>
+  <thead><tr><th>Stored</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td>Amount, currency</td><td>The transaction itself</td></tr>
+    <tr><td>Merchant or vendor name</td><td>Categorisation and learning your preferences</td></tr>
+    <tr><td>Category, income or expense</td><td>Dashboard totals and breakdowns</td></tr>
+    <tr><td>Date and time</td><td>Monthly grouping</td></tr>
+    <tr><td>Originating app package name</td><td>Duplicate detection</td></tr>
+    <tr><td><strong>Raw notification text</strong></td><td>So a transaction can be re-read if parsing was wrong</td></tr>
+  </tbody>
+</table>
+<p>We want to be explicit about that last row: the original text of a captured notification is saved locally alongside the transaction. This may include details your bank chose to put in the alert, such as the last digits of a card. It is stored only on your device, in the app's private storage, and is never transmitted. You can delete any transaction, which deletes its stored text with it.</p>
+
+<h2>Exporting your own data</h2>
+<p>Settings offers a CSV export. On Android 10 and newer the file is written to your device's Downloads folder; on Android 8 and 9 it is written to the app's own external files folder. The export happens only when you ask for it. Once a file is in your Downloads folder, it is an ordinary file under your control — if you then share it, that is your decision and this policy no longer governs it.</p>
+
+<h2>Permissions and why they exist</h2>
+<table>
+  <thead><tr><th>Permission</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td>Notification access</td><td>Read alerts from banking apps you enable. Optional; the app works without it via manual entry.</td></tr>
+    <tr><td><code>POST_NOTIFICATIONS</code></td><td>Show the local prompt asking you to categorise a transaction.</td></tr>
+    <tr><td><code>RECEIVE_BOOT_COMPLETED</code></td><td>Resume capture after a restart. Grants no access to any data.</td></tr>
+  </tbody>
+</table>
+<p>The app does not request internet access, location, contacts, camera, microphone, SMS, call logs, or the ability to see your full list of installed apps.</p>
+
+<h2>Deleting your data</h2>
+<p>Uninstalling the app permanently removes its database and every transaction in it. Because nothing was ever transmitted, there is no copy anywhere else and no deletion request to make. You may also clear the app's storage from Android settings, or delete individual transactions in the app.</p>
+
+<h2>Children</h2>
+<p>The app is not directed at children under 13. It collects no personal information from anyone, children included.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the revised version will be published at this address with a new effective date. Any change that would allow data to leave your device would be a fundamental change to the app, announced clearly in the release notes.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:taimoordevwork@gmail.com">taimoordevwork@gmail.com</a></p>
+
+<footer>ExpiTracker is an offline, local-only application. No servers, no accounts, no tracking.</footer>
+
+</body>
+</html>
